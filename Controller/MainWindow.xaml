@@ -1,0 +1,59 @@
+﻿<Window x:Class="controller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:controller"
+        mc:Ignorable="d"
+        Title="VISCA Camera PTZ control" ResizeMode="NoResize" Height="340" Width="478">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="Tab" HorizontalAlignment="Left" Height="307" VerticalAlignment="Top" Width="469">
+            <TabItem Header="Control">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
+                    <Button x:Name="CallPositionButton0" Content="0:" HorizontalAlignment="Left" Height="32" Margin="10,69,0,0" VerticalAlignment="Top" Width="189" Click="CallPositionButton0_Click"/>
+                    <Button x:Name="CallPositionButton1" Content="1:" HorizontalAlignment="Left" Height="32" Margin="10,101,0,0" VerticalAlignment="Top" Width="189" Click="CallPositionButton1_Click"/>
+                    <Button x:Name="CallPositionButton2" Content="2:" HorizontalAlignment="Left" Height="32" Margin="10,133,0,0" VerticalAlignment="Top" Width="189" Click="CallPositionButton2_Click"/>
+                    <Button x:Name="CallPositionButton3" Content="3:" HorizontalAlignment="Left" Height="32" Margin="10,165,0,0" VerticalAlignment="Top" Width="189" Click="CallPositionButton3_Click"/>
+                    <Button x:Name="CallPositionButton4" Content="4:" HorizontalAlignment="Left" Height="32" Margin="10,197,0,0" VerticalAlignment="Top" Width="189" Click="CallPositionButton4_Click"/>
+                    <Button x:Name="CallPositionButton5" Content="5:" HorizontalAlignment="Left" Height="32" Margin="10,229,0,0" VerticalAlignment="Top" Width="189" Click="CallPositionButton5_Click"/>
+                    <TextBlock x:Name="Disp" HorizontalAlignment="Left" Height="124" Margin="232,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="189" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="status" HorizontalAlignment="Left" Margin="232,229,0,0" TextWrapping="Wrap" Text="Disconnected" VerticalAlignment="Top" Height="29" Width="189" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Connect" Content="Connect" HorizontalAlignment="Left" Margin="232,197,0,0" VerticalAlignment="Top" Width="87" Height="24" Click="Connect_Click"/>
+                    <Button x:Name="Disconnect" Content="Disconnect" HorizontalAlignment="Left" Margin="334,197,0,0" VerticalAlignment="Top" Width="87" Height="24" Click="Disconnect_Click" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="cboPorts" HorizontalAlignment="Left" Height="28" Margin="232,162,0,0" VerticalAlignment="Top" Width="189" Grid.ColumnSpan="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Recall PTZ Positions:" VerticalAlignment="Top" Width="189"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Setting">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Save PTZ positions:" VerticalAlignment="Top" Width="189"/>
+                    <TextBox x:Name="PTZPosName" HorizontalAlignment="Left" Height="38" Margin="63,109,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
+                    <Button x:Name="btPTZset" Content="Save current PTZ position" HorizontalAlignment="Left" Height="38" Margin="10,168,0,0" VerticalAlignment="Top" Width="216" RenderTransformOrigin="-0.933,0.818" Click="btPTZset_Click"/>
+                    <ComboBox x:Name="cbPTZnames" HorizontalAlignment="Left" Height="27" Margin="63,55,0,0" VerticalAlignment="Top" Width="163" SelectionChanged="cbPTZnames_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" Text="Slot:" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.481,3.25" Height="27"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,109,0,0" TextWrapping="Wrap" Text="New Name" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.481,3.25" Height="38"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="258,55,0,0" TextWrapping="Wrap" Text="Step1: Choose a position slot" VerticalAlignment="Top" Height="27" Width="178"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="258,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="193"><Run Text="Step2: Pick a new name or "/><LineBreak/><Run Text="remain the original name"/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="258,168,0,0" TextWrapping="Wrap" Text="Step3: Click to save the current position and the name as well;" VerticalAlignment="Top" Height="38" Width="193"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Alternative control" >
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
+                    <TextBlock x:Name="debug" HorizontalAlignment="Left" Height="67" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" FontSize="16"><Run FontWeight="Bold" Text="Alternative Keyboard control "/><LineBreak/><Run Text="&#x9;only runs when this window got the focus "/><LineBreak/><Run Text="&#x9;AND this tab is selected"/></TextBlock>
+                    <Image Margin="37,82,37,10" Source="Alternative Control.png" Stretch="Fill"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Help" >
+                <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
+                    <Image Margin="10" Source="Help.png" Stretch="Fill"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
